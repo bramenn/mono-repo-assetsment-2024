@@ -1,0 +1,26 @@
+version: '3.0'
+services:
+  thingsboard:
+    restart: always
+    image: "thingsboard/tb-postgres"
+    ports:
+      - "8080:9090"
+    environment:
+      TB_QUEUE_TYPE: rabbitmq
+      TB_QUEUE_RABBIT_MQ_USERNAME: bramen
+      TB_QUEUE_RABBIT_MQ_PASSWORD: bramen
+      TB_QUEUE_RABBIT_MQ_HOST: rabbitmq
+      TB_QUEUE_RABBIT_MQ_PORT: 5672
+    volumes:
+      - ./mytb-data:/data
+    depends_on: 
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    ports:
+      - "5672:5672" # AMQP port
+      - "15672:15672" # Management UI port
+    environment:
+      - RABBITMQ_DEFAULT_USER=bramen
+      - RABBITMQ_DEFAULT_PASS=bramen
