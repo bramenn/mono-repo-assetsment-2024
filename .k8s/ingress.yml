@@ -1,0 +1,41 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aicampo-ingress
+  namespace: dev
+spec:
+  rules:
+    - host: "bramen.org"
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/kong"
+          backend:
+            service:
+              name: api-gateway
+              port:
+                number: 8000
+
+        - pathType: Prefix
+          path: "/konga"
+          backend:
+            service:
+              name: api-gateway
+              port:
+                number: 1337
+
+        - pathType: Prefix
+          path: "/ecommerce"
+          backend:
+            service:
+              name: service2
+              port:
+                number: 80
+
+        - pathType: Prefix
+          path: "/iot"
+          backend:
+            service:
+              name: service3
+              port:
+                number: 80

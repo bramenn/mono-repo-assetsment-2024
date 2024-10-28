@@ -17,7 +17,7 @@ class Dispositivo:
         self.rango_min = rango_min
         self.rango_max = rango_max
 
-dispositivo_1 = Dispositivo("N0uQ4M983XqQ4TyWLIsY", "temperatura", 20, 30)
+dispositivo_1 = Dispositivo("N0uQ4M983XqQ4TyWLIsY", "temperatura", 20, 31)
 dispositivo_2 = Dispositivo("VBef7GZ68gH7cnWES15x", "humedad", 60, 100)
 dispositivo_3 = Dispositivo("niwy4LHdqMtrk5B5mZVM", "precipitacion", 0, 50)
 

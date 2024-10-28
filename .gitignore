@@ -1,3 +1,10 @@
 mytb-data
 mytb-logs
 env
+
+*db
+*junit
+*env
+*__pycache__/
+.env
+config-k8s.yaml
