@@ -1,7 +1,8 @@
 name: Python lint and CI/CD
 
 
-on: [push]
+on:  
+  workflow_dispatch:
 
 jobs:
   lint:

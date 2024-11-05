@@ -24,18 +24,18 @@ spec:
               port:
                 number: 1337
 
-        - pathType: Prefix
-          path: "/ecommerce"
-          backend:
-            service:
-              name: service2
-              port:
-                number: 80
+        # - pathType: Prefix
+        #   path: "/ecommerce"
+        #   backend:
+        #     service:
+        #       name: service2
+        #       port:
+        #         number: 80
 
         - pathType: Prefix
           path: "/iot"
           backend:
             service:
-              name: service3
+              name: thingsboard
               port:
                 number: 80

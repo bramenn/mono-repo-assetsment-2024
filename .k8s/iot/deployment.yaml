@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thingsboard-deployment
+  labels:
+    app: thingsboard-deployment
+spec:
+  selector:
+    matchLabels:
+      app: thingsboard-deployment
+  template:
+    metadata:
+      labels:
+        app: thingsboard-deployment
+    spec:
+      containers:
+        - name: thingsboard
+          image: thingsboard/tb-postgres
+          env:
+            - name: TB_QUEUE_TYPE
+              value: "rabbitmq"
+            - name: TB_QUEUE_RABBIT_MQ_USERNAME
+              value: "bramen"
+            - name: TB_QUEUE_RABBIT_MQ_PASSWORD
+              value: "bramen"
+            - name: TB_QUEUE_RABBIT_MQ_HOST
+              value: "rabbitmq"
+            - name: TB_QUEUE_RABBIT_MQ_PORT
+              value: 5672
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres:5432/thingsboard"
+            - name: TB_QUEUE_RABBIT_MQ_HOST
+              value: "tb_user"
+            - name: TB_QUEUE_RABBIT_MQ_PORT
+              value: "tb_password"
+          ports:
+            - containerPort: 9090
