@@ -4,6 +4,7 @@ metadata:
   name: thingsboard-deployment
   labels:
     app: thingsboard-deployment
+  namespace: dev
 spec:
   selector:
     matchLabels:
@@ -24,14 +25,14 @@ spec:
             - name: TB_QUEUE_RABBIT_MQ_PASSWORD
               value: "bramen"
             - name: TB_QUEUE_RABBIT_MQ_HOST
-              value: "rabbitmq"
+              value: "localhost"
             - name: TB_QUEUE_RABBIT_MQ_PORT
-              value: 5672
+              value: "5672"
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:postgresql://postgres:5432/thingsboard"
-            - name: TB_QUEUE_RABBIT_MQ_HOST
-              value: "tb_user"
-            - name: TB_QUEUE_RABBIT_MQ_PORT
-              value: "tb_password"
+              value: "jdbc:postgresql://4.tcp.ngrok.io:16794/bramen"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "bramen"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "bramen"
           ports:
             - containerPort: 9090

@@ -9,4 +9,4 @@ env
 .env
 config-k8s.yaml
 
-postgres_data/*
+postgres_data/

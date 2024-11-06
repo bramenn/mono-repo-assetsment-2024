@@ -8,21 +8,21 @@ spec:
     - host: "bramen.org"
       http:
         paths:
-        - pathType: Prefix
-          path: "/kong"
-          backend:
-            service:
-              name: api-gateway
-              port:
-                number: 8000
+        # - pathType: Prefix
+        #   path: "/kong"
+        #   backend:
+        #     service:
+        #       name: api-gateway
+        #       port:
+        #         number: 8000
 
-        - pathType: Prefix
-          path: "/konga"
-          backend:
-            service:
-              name: api-gateway
-              port:
-                number: 1337
+        # - pathType: Prefix
+        #   path: "/konga"
+        #   backend:
+        #     service:
+        #       name: api-gateway
+        #       port:
+        #         number: 1337
 
         # - pathType: Prefix
         #   path: "/ecommerce"
