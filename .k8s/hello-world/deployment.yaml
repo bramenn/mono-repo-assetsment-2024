@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-one
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      app: hello-one
+  template:
+    metadata:
+      labels:
+        app: hello-one
+    spec:
+      containers:
+      - name: hello-ingress
+        image: nginxdemos/hello
+        resources:
+          requests:
+            cpu: "100m"  # Solicitud mínima de CPU
+          limits:
+            cpu: "500m"  # Límite máximo de CPU        
+        ports:
+        - containerPort: 80

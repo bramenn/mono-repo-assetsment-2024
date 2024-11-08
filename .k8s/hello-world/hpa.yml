@@ -1,15 +1,15 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: konga-hpa
+  name: hello-one-hpa
   namespace: dev
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: konga
-  minReplicas: 1
-  maxReplicas: 5
+    name: hello-one
+  minReplicas: 3
+  maxReplicas: 7
   metrics:
     - type: Resource
       resource:

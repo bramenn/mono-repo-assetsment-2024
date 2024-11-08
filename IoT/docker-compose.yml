@@ -25,7 +25,7 @@ services:
       - RABBITMQ_DEFAULT_PASS=bramen
 
   postgres:
-    image: postgres:14
+    image: postgres:11
     environment:
       POSTGRES_DB: bramen     # Nombre de la base de datos
       POSTGRES_USER: bramen         # Usuario de la base de datos
