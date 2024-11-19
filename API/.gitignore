@@ -1,0 +1,6 @@
+*db
+*junit
+*env
+*__pycache__/
+.env
+config-k8s.yaml
