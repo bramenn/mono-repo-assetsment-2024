@@ -12,6 +12,8 @@ jobs:
         working-directory: ./API
     steps:
       - uses: actions/checkout@v4
+      - name: test
+        run: ls -l      
       - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
