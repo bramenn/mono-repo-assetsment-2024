@@ -1,10 +1,12 @@
 from datetime import datetime
-from pydantic import BaseModel, Field
-from sqlalchemy import Column, Integer, String, Date, Enum
-from sqlalchemy.sql.schema import ForeignKey
 from enum import Enum as PyEnum
 
+from pydantic import BaseModel, Field
+from sqlalchemy import Column, Date, Enum, Integer, String
+from sqlalchemy.sql.schema import ForeignKey
+
 from .. import db
+
 
 class NivelEnum(PyEnum):
     CRITICO = "critico"

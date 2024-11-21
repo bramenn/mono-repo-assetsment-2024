@@ -1,10 +1,10 @@
 from datetime import datetime
+
 from pydantic import BaseModel
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Date, Integer, String
 from sqlalchemy.orm import relationship
 
 from .. import db
-
 from ..evento.modelo import Evento
 
 

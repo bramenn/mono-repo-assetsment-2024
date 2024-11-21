@@ -1,8 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
 
-from .db import Base, conn
 from .cultivo import endpoint as cultivo_endpoint
+from .db import Base, conn
 
 app = FastAPI()
 
