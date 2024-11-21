@@ -1,6 +1,6 @@
 name: Verifiación y contruncción API - FastAPI
 
-on: [pull_request]
+on: [push, pull_request]
 
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
