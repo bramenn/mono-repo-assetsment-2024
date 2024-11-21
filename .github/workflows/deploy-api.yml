@@ -1,7 +1,7 @@
 name: Verifiación y contruncción API - FastAPI
 
 
-on:  
+on:
   workflow_dispatch:
 
 jobs:
@@ -12,14 +12,12 @@ jobs:
         working-directory: ./API
     steps:
       - uses: actions/checkout@v4
-      - name: test
-        run: ls -l      
       - uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-      - uses: isort/isort-action@master
-        with:
-          sortPaths: "./app"
+      # - uses: isort/isort-action@master
+      #   with:
+      #     sortPaths: "./app"
       - uses: psf/black@stable
         with:
           src: "./app"
@@ -36,7 +34,7 @@ jobs:
   #   runs-on: ubuntu-latest
   #   defaults:
   #     run:
-  #       working-directory: ./API    
+  #       working-directory: ./API
   #   steps:
   #   - uses: actions/checkout@v4
   #   - uses: actions/setup-python@v4
@@ -53,7 +51,7 @@ jobs:
   #   runs-on: ubuntu-latest
   #   defaults:
   #     run:
-  #       working-directory: ./API      
+  #       working-directory: ./API
   #   needs: [lint, test]
   #   environment: deploy
   #   steps:
