@@ -2,10 +2,11 @@ from typing import List
 
 from fastapi import APIRouter
 
-# from .consultas import 
+# from .consultas import
 from .modelo import EventoIn, EventoOut
 
 router = APIRouter()
+
 
 @router.get(
     "/",

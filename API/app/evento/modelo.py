@@ -14,6 +14,7 @@ class NivelEnum(PyEnum):
     MEDIO = "medio"
     BAJO = "bajo"
 
+
 class Evento(db.Base):
     __tablename__ = "evento"
     id = Column("id", Integer, autoincrement=True, primary_key=True, unique=True)

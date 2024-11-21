@@ -2,10 +2,11 @@ from typing import List
 
 from fastapi import APIRouter
 
-# from .consultas import 
+# from .consultas import
 from .modelo import CultivoIn, CultivoOut
 
 router = APIRouter()
+
 
 @router.get(
     "/",
