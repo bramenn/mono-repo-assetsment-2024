@@ -12,7 +12,7 @@ services:
   #     TB_QUEUE_RABBIT_MQ_PORT: 5672
   #   volumes:
   #     - ./mytb-data:/data
-  #   depends_on: 
+  #   depends_on:
   #     - rabbitmq
 
   rabbitmq:

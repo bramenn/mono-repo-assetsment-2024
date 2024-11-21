@@ -8,7 +8,7 @@ spec:
   rules:
     - host: "bramen.org"
       http:
-        paths:    
+        paths:
         - pathType: Prefix
           path: /
           backend:

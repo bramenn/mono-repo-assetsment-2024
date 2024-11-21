@@ -20,5 +20,5 @@ spec:
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
-                name: konga-config           
+                name: konga-config
       restartPolicy: Always

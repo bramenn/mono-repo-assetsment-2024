@@ -1,7 +1,7 @@
 name: Python lint and CI/CD
 
 
-on:  
+on:
   workflow_dispatch:
 
 jobs:

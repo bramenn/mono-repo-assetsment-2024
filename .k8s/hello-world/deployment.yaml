@@ -19,6 +19,6 @@ spec:
           requests:
             cpu: "100m"  # Solicitud mínima de CPU
           limits:
-            cpu: "500m"  # Límite máximo de CPU        
+            cpu: "500m"  # Límite máximo de CPU
         ports:
         - containerPort: 80
