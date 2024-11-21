@@ -55,6 +55,9 @@ jobs:
   docker:
     if: "github.ref_name == 'master'"
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./API
     needs: [lint]
     steps:
       - name: Checkout code
