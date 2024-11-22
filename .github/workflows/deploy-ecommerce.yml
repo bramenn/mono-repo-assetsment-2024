@@ -1,4 +1,4 @@
-name: Verifiación y contruncción API - FastAPI
+name: Contruncción Ecommerce
 
 on: [push, pull_request]
 
