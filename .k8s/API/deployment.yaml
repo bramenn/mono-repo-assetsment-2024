@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    app: api-deployment
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      app: api-deployment
+  template:
+    metadata:
+      labels:
+        app: api-deployment
+    spec:
+      containers:
+        - name: api-cultivos
+          image: aws-image
+          env:
+            - name: POSTGRES_URI
+              value: "postgresql://user:password@host:port/db"
+          ports:
+            - containerPort: 80
