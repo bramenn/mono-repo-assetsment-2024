@@ -14,7 +14,6 @@ jobs:
     defaults:
       run:
         working-directory: ./opencart
-    needs: [lint]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
