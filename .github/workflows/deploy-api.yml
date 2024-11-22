@@ -33,7 +33,6 @@ jobs:
           pre-commit run -av end-of-file-fixer
           pre-commit run -av check-yaml
 
-
   # test:
   #   runs-on: ubuntu-latest
   #   defaults:
