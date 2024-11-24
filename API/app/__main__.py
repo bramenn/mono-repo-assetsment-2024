@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from .cultivo import endpoint as cultivo_endpoint
 from .db import Base, conn
 
-app = FastAPI()
+app = FastAPI(root_path="/api")
 
 app.include_router(cultivo_endpoint.router, prefix="/v1/cultivo", tags=["cultivo"])
 
