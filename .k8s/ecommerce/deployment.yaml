@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: opencart
-          image: aws-image
+          image: 376288839410.dkr.ecr.us-east-1.amazonaws.com/opencart
           env:
             - name: APACHE_DOCUMENT_ROOT
               value: "/var/www/html"
@@ -27,10 +27,10 @@ spec:
           image: phpmyadmin/phpmyadmin
           env:
             - name: PMA_HOST
-              value: db
+              value: "6.tcp.ngrok.io"
             - name: PMA_PORT
-              value: 3306
+              value: "15851"
             - name: MYSQL_ROOT_PASSWORD
-              value: rootpassword
+              value: "rootpassword"
           ports:
-            - containerPort: 8080
+            - containerPort: 3306

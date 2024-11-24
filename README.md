@@ -129,4 +129,34 @@ Aquí tienes una lista de los comandos más comunes de `kubectl`, organizados po
   source <(kubectl completion bash)
   ```
 
-Estos comandos cubren los usos más comunes de `kubectl` y son una buena base para trabajar en Kubernetes.
+## Desplegando el ingreso de NGINX en el motor de Linode Kubernetes
+https://www.linode.com/docs/guides/deploy-nginx-ingress-on-lke/
+
+
+#### 1. Añada el siguiente repositorio Helm ingress-nginx a sus repositorios Helm.
+
+    helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+#### 2. Actualice sus depósitos de timón.
+
+    helm repo update
+
+#### 3. Instale el Controlador de Entrada NGINX. Esta instalación resultará en la creación de un Linode NodeBalancer.
+
+    helm install ingress-nginx ingress-nginx/ingress-nginx
+
+
+## Create secret for K8S to access AWS ECR
+
+https://gist.github.com/t2wu/ce286e0883fe10cd54b664be17bf63fe
+
+    kubectl create secret docker-registry regcred \
+    --docker-server=<aws-account-id>.dkr.ecr.<aws-region>.amazonaws.com \
+    --docker-username=AWS \
+    --docker-password=$(aws ecr get-login-password) \
+    -o yaml
+  
+This creates the regcred secret and at the same time output YAML to standard output which you
+can store elsewhere. In my case I have two machines, one having aws and the other having kubectl.
+So I run "aws ecr get-login-password" on one machine and paste the result to replace
+$(aws ecr get-login-password).

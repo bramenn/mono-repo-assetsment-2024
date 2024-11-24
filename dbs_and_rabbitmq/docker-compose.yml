@@ -18,3 +18,14 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"  # Puerto de PostgreSQL
+
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: opencart
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
