@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: api-cultivos
-          image: 376288839410.dkr.ecr.us-east-1.amazonaws.com/fastapi-assetsment:20241122.39
+          image: 376288839410.dkr.ecr.us-east-1.amazonaws.com/fastapi-assetsment
           env:
             - name: POSTGRES_URI
               value: "postgresql://bramen:bramen@0.tcp.ngrok.io:17502/api"
