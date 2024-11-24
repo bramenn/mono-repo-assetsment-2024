@@ -95,3 +95,15 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Create kubeconfig
+        working-directory: .k8s/API
+        run: |
+          mkdir ${HOME}/.kube
+          echo '${{ secrets.KUBECONFIG }}' | base64 --decode > ${HOME}/.kube/config
+
+      - name: Deploy to K8s
+        working-directory: .k8s/API
+        run: |
+          kubectl apply -f .
+          kubectl rollout restart deployment/api-deployment
