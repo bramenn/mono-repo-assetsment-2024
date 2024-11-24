@@ -10,3 +10,4 @@ env
 config-k8s.yaml
 
 postgres_data/
+dbs_and_rabbitmq/postgres_data

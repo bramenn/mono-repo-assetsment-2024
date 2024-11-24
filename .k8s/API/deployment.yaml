@@ -16,9 +16,11 @@ spec:
     spec:
       containers:
         - name: api-cultivos
-          image: aws-image
+          image: 376288839410.dkr.ecr.us-east-1.amazonaws.com/fastapi-assetsment:20241122.39
           env:
             - name: POSTGRES_URI
-              value: "postgresql://user:password@host:port/db"
+              value: "postgresql://bramen:bramen@0.tcp.ngrok.io:17502/api"
           ports:
             - containerPort: 80
+      imagePullSecrets:
+        - name: ecr-secret

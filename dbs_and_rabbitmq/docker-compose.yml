@@ -1,0 +1,20 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    ports:
+      - "5672:5672" # AMQP port
+      - "15672:15672" # Management UI port
+    environment:
+      - RABBITMQ_DEFAULT_USER=bramen
+      - RABBITMQ_DEFAULT_PASS=bramen
+
+  postgres:
+    image: postgres:11
+    environment:
+      POSTGRES_DB: bramen     # Nombre de la base de datos
+      POSTGRES_USER: bramen         # Usuario de la base de datos
+      POSTGRES_PASSWORD: bramen  # Contraseña del usuario
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"  # Puerto de PostgreSQL
