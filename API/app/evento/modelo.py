@@ -28,8 +28,8 @@ class Evento(db.Base):
 
 class EventoIn(BaseModel):
     titulo: str
-    descripcion: NivelEnum = Field(..., description="Nivel del evento: critico, alto, medio, bajo")
-    nivel: str
+    descripcion: str
+    nivel: NivelEnum = Field(..., description="Nivel del evento: critico, alto, medio, bajo")
     fecha_evento: datetime
 
     cultivo_id: int
