@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
 
 from ..responses.http import _404NotFound, _500ServerError
@@ -54,9 +54,11 @@ def get_evento_id(id: str):
     operation_id="getEventos",
     responses={404: {"model": _404NotFound}, 500: {"model": _500ServerError}},
 )
-def get_all_eventos(id: str):
+def get_all_eventos(request: Request, id: str):
     data = get_eventos_cultivo_id_db(id=id)
-    return templates.TemplateResponse("ticket_template.html", data.dict())
+    return templates.TemplateResponse(
+        "ticket_template.html", {"request": request, "data": data.model_dump()}
+    )
 
 
 @router.post(
