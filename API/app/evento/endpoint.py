@@ -1,12 +1,20 @@
 from typing import List
 
 from fastapi import APIRouter
+from fastapi.templating import Jinja2Templates
 
 from ..responses.http import _404NotFound, _500ServerError
-from .consultas import create_evento_db, get_all_eventos_db, get_evento_id_db
+from .consultas import (
+    create_evento_db,
+    get_all_eventos_db,
+    get_evento_id_db,
+    get_eventos_cultivo_id_db,
+)
 from .modelo import EventoIn, EventoOut
 
 router = APIRouter()
+
+templates = Jinja2Templates(directory="templates")
 
 
 @router.get(
@@ -35,6 +43,20 @@ def get_all_eventos():
 def get_evento_id(id: str):
     evento = get_evento_id_db(id)
     return evento
+
+
+@router.get(
+    "/html/cultivo/{id}",
+    response_model=List[EventoOut],
+    status_code=200,
+    summary="Obtenga todos los eventos",
+    description="Obtenga todos los eventos",
+    operation_id="getEventos",
+    responses={404: {"model": _404NotFound}, 500: {"model": _500ServerError}},
+)
+def get_all_eventos(id: str):
+    data = get_eventos_cultivo_id_db(id=id)
+    return templates.TemplateResponse("ticket_template.html", {**data.eventos})
 
 
 @router.post(

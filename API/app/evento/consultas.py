@@ -2,7 +2,7 @@ from fastapi import status
 from fastapi.exceptions import HTTPException
 
 from .. import db
-from .modelo import Evento, EventoIn, EventoOut
+from .modelo import Evento, EventoIn, EventoOut, EventosOut
 
 
 def get_all_eventos_db() -> EventoOut:
@@ -15,6 +15,20 @@ def get_all_eventos_db() -> EventoOut:
         )
 
     return [parse_evento(evento) for evento in eventos]
+
+
+def get_eventos_cultivo_id_db(id: str) -> EventosOut:
+    eventos = db.session.query(Evento).where(Evento.cultivo_id == id)
+
+    if not eventos:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Eventos no encontrados",
+        )
+
+    all_events = EventosOut(eventos=[parse_evento(evento) for evento in eventos])
+
+    return all_events
 
 
 def get_evento_id_db(id: str) -> EventoOut:

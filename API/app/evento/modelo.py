@@ -43,3 +43,7 @@ class EventoOut(BaseModel):
     fecha_evento: datetime = datetime.now()
 
     cultivo_id: int = 10
+
+
+class EventosOut(BaseModel):
+    eventos: list = EventoOut
