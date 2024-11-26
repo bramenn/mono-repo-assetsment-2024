@@ -40,7 +40,7 @@ resource "linode_instance" "assetsment_server" {
       "curl -fsSL https://get.docker.com -o get-docker.sh",
       "sh get-docker.sh",
       "git clone https://github.com/bramenn/thingsboard.git",
-      "cd thingsboard,"
+      "cd thingsboard",
       "touch .env",
       "echo 'TB_QUEUE_TYPE=rabbitmq' >> .env",
       "echo 'TB_QUEUE_RABBIT_MQ_USERNAME=bramen' >> .env",
