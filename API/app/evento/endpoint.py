@@ -10,7 +10,7 @@ from .consultas import (
     get_evento_id_db,
     get_eventos_cultivo_id_db,
 )
-from .modelo import EventoIn, EventoOut
+from .modelo import EventoIn, EventoOut, EventosOut
 
 router = APIRouter()
 
@@ -47,7 +47,7 @@ def get_evento_id(id: str):
 
 @router.get(
     "/html/cultivo/{id}",
-    response_model=List[EventoOut],
+    response_model=List[EventosOut],
     status_code=200,
     summary="Obtenga todos los eventos",
     description="Obtenga todos los eventos",
@@ -56,9 +56,11 @@ def get_evento_id(id: str):
 )
 def get_all_eventos(request: Request, id: str):
     data = get_eventos_cultivo_id_db(id=id)
-    return templates.TemplateResponse(
-        "ticket_template.html", {"request": request, "data": data.model_dump()}
-    )
+
+    return data
+    # return templates.TemplateResponse(
+    #     "ticket_template.html", {"request": request, "data": data.model_dump()}
+    # )
 
 
 @router.post(
