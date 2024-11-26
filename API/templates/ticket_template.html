@@ -34,11 +34,11 @@
         <tbody>
             {% for evento in eventos %}
             <tr>
-                <td>{{ id }}</td>
-                <td>{{ titulo }}</td>
-                <td>{{ descripcion }}</td>
-                <td>{{ nivel }}</td>
-                <td>{{ fecha_evento }}</td>
+                <td>{{ evento.id }}</td>
+                <td>{{ evento.titulo }}</td>
+                <td>{{ evento.descripcion }}</td>
+                <td>{{ evento.nivel }}</td>
+                <td>{{ evento.fecha_evento }}</td>
             </tr>
             {% endfor %}
         </tbody>

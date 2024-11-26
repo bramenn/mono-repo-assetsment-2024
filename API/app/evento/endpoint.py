@@ -56,7 +56,7 @@ def get_evento_id(id: str):
 )
 def get_all_eventos(id: str):
     data = get_eventos_cultivo_id_db(id=id)
-    return templates.TemplateResponse("ticket_template.html", {**data.eventos})
+    return templates.TemplateResponse("ticket_template.html", {**data})
 
 
 @router.post(
