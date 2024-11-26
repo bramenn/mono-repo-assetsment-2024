@@ -10,10 +10,6 @@ variable "type"{
     type = string
 }
 
-variable "github_repo"{
-    type = string
-}
-
 variable "ssh_public_key"{
     type = string
 }
