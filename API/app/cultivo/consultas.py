@@ -32,7 +32,15 @@ def get_cultivo_id_db(id: str) -> CultivoOut:
 def create_cultivo_db(
     new_cultivo: CultivoIn,
 ) -> CultivoOut:
-    cultivo = Cultivo(name=new_cultivo.name)
+    cultivo = Cultivo(
+        name=new_cultivo.name,
+        tipo=new_cultivo.tipo,
+        variedad=new_cultivo.variedad,
+        ubicacion=new_cultivo.ubicacion,
+        tamano=new_cultivo.tamano,
+        fecha_siembra=new_cultivo.fecha_siembra,
+        fecha_cosecha=new_cultivo.fecha_cosecha,
+    )
 
     try:
         db.session.add(cultivo)
