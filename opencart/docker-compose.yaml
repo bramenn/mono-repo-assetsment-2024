@@ -1,17 +1,5 @@
-version: '3.8'
 services:
-  web:
-    build: .
-    ports:
-      - "80:80"
-    depends_on:
-      - db
-    # volumes:
-    #   - ./htdocs:/var/www/html
-    environment:
-      - APACHE_DOCUMENT_ROOT=/var/www/html
-
-  db:
+  mysql:
     image: mysql
     restart: always
     environment:
@@ -21,18 +9,21 @@ services:
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    restart: always
+  rabbitmq:
+    image: rabbitmq:3.11-management
     ports:
-      - '8080:80'
+      - "5672:5672" # AMQP port
+      - "15672:15672" # Management UI port
     environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: rootpassword
-    depends_on:
-      - db
-
-volumes:
-  db_data:
+      - RABBITMQ_DEFAULT_USER=bramen
+      - RABBITMQ_DEFAULT_PASS=bramen
+  postgres:
+    image: postgres:11
+    environment:
+      POSTGRES_DB: bramen     # Nombre de la base de datos
+      POSTGRES_USER: bramen         # Usuario de la base de datos
+      POSTGRES_PASSWORD: bramen  # Contraseña del usuario
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"  # Puerto de PostgreSQL

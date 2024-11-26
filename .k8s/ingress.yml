@@ -16,7 +16,7 @@ spec:
           path: /
           backend:
             service:
-              name: hello-one
+              name: ecommerce
               port:
                 number: 80
 
@@ -25,5 +25,13 @@ spec:
           backend:
             service:
               name: api
+              port:
+                number: 80
+
+        - pathType: Prefix
+          path: /hello
+          backend:
+            service:
+              name: hello-one
               port:
                 number: 80

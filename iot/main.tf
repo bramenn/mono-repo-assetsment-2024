@@ -43,11 +43,10 @@ resource "linode_instance" "assetsment_server" {
       "echo 'TB_QUEUE_TYPE=rabbitmq' >> .env",
       "echo 'TB_QUEUE_RABBIT_MQ_USERNAME=bramen' >> .env",
       "echo 'TB_QUEUE_RABBIT_MQ_PASSWORD=bramen' >> .env",
-      "echo 'TB_QUEUE_RABBIT_MQ_HOST=rabbitmq' >> .env",
-      "echo 'TB_POSTGRESQL_URL=jdbc:postgresql://172.235.142.231:5432/thingsboard' >> .env",
-      "echo 'TB_POSTGRESQL_USER=bramen' >> .env",
-      "echo 'TB_POSTGRESQL_PASSWORD=bramen' >> .env",
-      "echo 'TB_POSTGRESQL_DB_NAME=thingsboard' >> .env",
+      "echo 'TB_QUEUE_RABBIT_MQ_HOST=172.235.142.231' >> .env",
+      "echo 'SPRING_DATASOURCE_URL=jdbc:postgresql://172.235.142.231:5432/thingsboard' >> .env",
+      "echo 'SPRING_DATASOURCE_USERNAME=bramen' >> .env",
+      "echo 'SPRING_DATASOURCE_PASSWORD=bramen' >> .env",
       "docker compose up -d"
     ]
   }

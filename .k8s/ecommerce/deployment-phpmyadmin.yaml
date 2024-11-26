@@ -1,35 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ecommerce-deployment
+  name: ecommerce-php-deployment
   labels:
-    app: ecommerce-deployment
+    app: ecommerce-php-deployment
   namespace: dev
 spec:
   selector:
     matchLabels:
-      app: ecommerce-deployment
+      app: ecommerce-php-deployment
   template:
     metadata:
       labels:
-        app: ecommerce-deployment
+        app: ecommerce-php-deployment
     spec:
       containers:
-        - name: opencart
-          image: 376288839410.dkr.ecr.us-east-1.amazonaws.com/opencart
-          env:
-            - name: APACHE_DOCUMENT_ROOT
-              value: "/var/www/html"
-          ports:
-            - containerPort: 80
-
         - name: phpmyadmin
           image: phpmyadmin/phpmyadmin
           env:
             - name: PMA_HOST
-              value: "6.tcp.ngrok.io"
+              value: "4.tcp.ngrok"
             - name: PMA_PORT
-              value: "15851"
+              value: "10602"
             - name: MYSQL_ROOT_PASSWORD
               value: "rootpassword"
           ports:

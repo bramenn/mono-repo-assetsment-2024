@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-opencart-deployment
+  labels:
+    app: ecommerce-opencart-deployment
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      app: ecommerce-opencart-deployment
+  template:
+    metadata:
+      labels:
+        app: ecommerce-opencart-deployment
+    spec:
+      initContainers:
+        - name: init-opencart
+          image: 376288839410.dkr.ecr.us-east-1.amazonaws.com/opencart
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              cp -r /var/www/html/* /mnt/data/;
+              chown -R www-data:www-data /mnt/data/; # Cambia el propietario al usuario del servidor web
+              chmod -R 755 /mnt/data/;              # Ajusta permisos para lectura y escritura
+          volumeMounts:
+            - name: opencart-data
+              mountPath: /mnt/data
+      containers:
+        - name: opencart
+          image: 376288839410.dkr.ecr.us-east-1.amazonaws.com/opencart
+          env:
+            - name: APACHE_DOCUMENT_ROOT
+              value: "/var/www/html"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: opencart-data
+              mountPath: /var/www/html
+      volumes:
+        - name: opencart-data
+          persistentVolumeClaim:
+            claimName: opencart-pvc
+      imagePullSecrets:
+        - name: ecr-secret

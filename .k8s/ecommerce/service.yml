@@ -4,7 +4,7 @@ metadata:
   name: ecommerce
 spec:
   selector:
-    app: ecommerce-deployment
+    app: ecommerce-opencart-deployment
   ports:
     - name: ecommerce
       port: 80
