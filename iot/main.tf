@@ -11,7 +11,7 @@ terraform {
 }
 
 provider "linode" {
-  token = var.linode_token
+  token = "64d083e53f5257d8bcc153f2e09afafe60d527b320e4fa40da44fc64bccea9e1"
 }
 
 resource "linode_instance" "assetsment_server" {
@@ -19,8 +19,7 @@ resource "linode_instance" "assetsment_server" {
   image           = var.image
   region          = var.location
   type            = var.type
-  authorized_keys = [var.ssh_public_key]
-  root_pass       = var.root_password
+  root_pass       = "H3lSt@n1225"
 
   tags       = ["Assetsment"]
   swap_size  = 500
@@ -29,9 +28,8 @@ resource "linode_instance" "assetsment_server" {
   connection {
     type        = "ssh"
     user        = "root"
-    password    = var.root_password
+    password    = "H3lSt@n1225"
     host        = linode_instance.assetsment_server.ip_address
-    private_key = var.ssh_private_key
   }
 
   provisioner "remote-exec" {
