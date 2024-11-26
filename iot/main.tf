@@ -16,9 +16,9 @@ provider "linode" {
 
 resource "linode_instance" "assetsment_server" {
   label           = "assetsment"
-  image           = "linode/debian12"
-  region          = "us-mia"
-  type            = "g6-standard-2"
+  image           = var.image
+  region          = var.location
+  type            = var.type
   authorized_keys = [var.ssh_public_key]
   root_pass       = var.root_password
 
