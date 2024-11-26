@@ -36,7 +36,7 @@ class EventoIn(BaseModel):
 
 
 class EventoOut(BaseModel):
-    id: str = 1
+    id: int = 1
     titulo: str = "Plaga detectada"
     descripcion: str = "Una plaga se a detectado en tu zona"
     nivel: NivelEnum = NivelEnum.CRITICO
