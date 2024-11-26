@@ -33,7 +33,7 @@ jobs:
       run: terraform init
 
     - name: Terraform plan destroy
-      run: terraform plan -var-file terraform.tfvars -destroy
+      run: terraform plan -destroy
 
     - name: Terraform destroy
-      run: terraform destroy -var-file terraform.tfvars -auto-approve
+      run: terraform destroy -auto-approve
