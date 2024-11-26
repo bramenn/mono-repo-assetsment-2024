@@ -160,3 +160,6 @@ This creates the regcred secret and at the same time output YAML to standard out
 can store elsewhere. In my case I have two machines, one having aws and the other having kubectl.
 So I run "aws ecr get-login-password" on one machine and paste the result to replace
 $(aws ecr get-login-password).
+
+
+## BluePrint de la arquitectura

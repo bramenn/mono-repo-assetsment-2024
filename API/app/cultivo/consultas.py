@@ -55,4 +55,13 @@ def create_cultivo_db(
 
 
 def parse_cultivo(cultivo: Cultivo) -> CultivoOut:
-    return CultivoOut(id=cultivo.id, name=cultivo.name)
+    return CultivoOut(
+        id=cultivo.id,
+        name=cultivo.name,
+        tipo=cultivo.tipo,
+        variedad=cultivo.variedad,
+        ubicacion=cultivo.ubicacion,
+        tamano=cultivo.tamano,
+        fecha_siembra=cultivo.fecha_siembra,
+        fecha_cosecha=cultivo.fecha_cosecha,
+    )
