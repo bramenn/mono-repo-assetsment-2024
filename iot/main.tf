@@ -16,9 +16,9 @@ provider "linode" {
 
 resource "linode_instance" "assetsment_server" {
   label           = "assetsment"
-  image           = var.image
-  region          = var.location
-  type            = var.type
+  image           = "linode/debian12"
+  region          = "us-mia"
+  type            = "g6-standard-2"
   root_pass       = "H3lSt@n1225"
 
   tags       = ["Assetsment"]
