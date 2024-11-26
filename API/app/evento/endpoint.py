@@ -47,7 +47,7 @@ def get_evento_id(id: str):
 
 @router.get(
     "/html/cultivo/{id}",
-    response_model=List[EventosOut],
+    response_model=List[EventoOut],
     status_code=200,
     summary="Obtenga todos los eventos",
     description="Obtenga todos los eventos",

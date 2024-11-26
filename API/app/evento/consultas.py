@@ -26,9 +26,7 @@ def get_eventos_cultivo_id_db(id: str) -> EventosOut:
             detail="Eventos no encontrados",
         )
 
-    all_events = EventosOut(eventos=[parse_evento(evento) for evento in eventos])
-
-    return all_events
+    return [parse_evento(evento) for evento in eventos]
 
 
 def get_evento_id_db(id: str) -> EventoOut:
